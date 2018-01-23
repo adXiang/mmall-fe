@@ -1,10 +1,12 @@
 /*
 * @Author: MaWenXiang
-* @Date:   2018-01-22 22:12:16
+* @Date:   2018-01-23 14:54:16
 * @Last Modified by:   MaWenXiang
-* @Last Modified time: 2018-01-22 22:13:08
+* @Last Modified time: 2018-01-23 15:06:08
 */
 
-'use strict'
+'use strict';
 
-console.log('i am global');
+require('./layout.css');
+require('node_modules/font-awesome/css/font-awesome.min.css');
+require('./footer/index.css');
