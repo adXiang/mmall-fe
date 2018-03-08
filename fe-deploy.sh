@@ -2,8 +2,8 @@
 
 #
 #使用方法
-#mmall : front_deploy.sh mmall-fe
-#admin : front_deploy.sh admin-fe
+#mmall : fe_deploy.sh mmall-fe
+#admin : fe_deploy.sh admin-fe
 #
 
 GIT_HOME=/developer/git-repository/
