@@ -2,12 +2,12 @@
 * @Author: MaWenXiang
 * @Date:   2018-01-23 14:54:16
 * @Last Modified by:   MaWenXiang
-* @Last Modified time: 2018-01-23 15:04:50
+* @Last Modified time: 2018-03-09 00:04:27
 */
 /* 通用头部导航 */
 .header .logo{
     position: absolute;
-    left: 60px;
+    left: 30px;
     top: 34px;
     display: block;
     font-size: 36px;
