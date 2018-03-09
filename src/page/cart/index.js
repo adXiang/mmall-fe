@@ -2,7 +2,7 @@
 * @Author: MaWenXiang
 * @Date:   2017-05-30 16:51:25
 * @Last Modified by:   MaWenXiang
-* @Last Modified time: 2018-01-23 15:36:16
+* @Last Modified time: 2018-03-09 12:12:40
 */
 
 'use strict';
@@ -129,7 +129,7 @@ var page = {
         $(document).on('click', '.btn-submit', function(){
             // 总价大于0，进行提交
             if(_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0){
-                window.location.href = './confirm.html';
+                window.location.href = './order-confirm.html';
             }else{
                 _mm.errorTips('请选择商品后再提交');
             }
