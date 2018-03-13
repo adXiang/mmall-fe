@@ -6,50 +6,52 @@
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
-var _mm           = require('util/mm.js');
-var _payment      = require('service/payment-service.js');
-var templateIndex = require('./index.string');
+
+var _mm = require('util/mm.js');
+var _payment = require('service/payment-service.js');
+var teplateIndex = require('./index.string');
 
 var page = {
-    data      : {
-        orderNumber: _mm.getUrlParam('orderNumber')
+    data : {
+        orderNumber : _mm.getUrlParam('orderNumber')
     },
-    init      : function () {
+    init : function(){
         this.onLoad();
-    },
-    onLoad    : function () {
+    }, 
+    onLoad : function(){ 
         this.loadPaymentInfo();
     },
-    // 加载订单 数据
-    loadPaymentInfo: function () {
-        var _this           = this,
-            paymentHtml = '',
-            $pageWrap        = $('.page-wrap');
-        $pageWrap.html('<div class="loading"></div>');
-        _payment.getPaymentInfo(this.data.orderNumber, function (res) {
+    
+    //加载订单详情
+    loadPaymentInfo : function(){
+        var _this             = this,
+            paymentlHtml   = '',
+            $pageWrap          = $('.page-wrap');
+         $pageWrap.html('<div class="loading"></div>');   
+        _payment.getPaymentInfo(this.data.orderNumber, function(res){
             //渲染html
-            paymentHtml = _mm.renderHtml(templateIndex, res);
-            $pageWrap.html(paymentHtml);
+            paymentlHtml = _mm.renderHtml( teplateIndex, res);
+            $pageWrap.html(paymentlHtml);
             //监听订单状态
             _this.listenOrderStatus();
-        }, function (errMsg) {
-            $pageWrap.html('<p class="err-tip">' + errMsg + '</p>');
+        }, function(errMsg){
+            $pageWrap.html('<p class="err-tip">'+ errMsg +'</p>');
         });
-    },
-    listenOrderStatus:function () {
+    }, 
+    listenOrderStatus : function(){
         var _this = this;
-        this.paymentTimer = window.setInterval(function () {
-            _payment.getPaymentStatus(_this.orderNumber,function (res) {
-                if(res == true){
+        this.paymentTimer = window.setInterval(function(){
+            _payment.getPaymentStatus(_this.data.orderNumber, function(res){
+                if(res == false){
                     window.location.href
                         = './result.html?type=payment&orderNumber=' + _this.data.orderNumber;
                 }
-            },function (errMsg) {
-
-            })
-        })
+            });
+        },5000);
     }
+  
 };
-$(function () {
+
+$(function(){
     page.init();
 });
