@@ -42,12 +42,12 @@ var page = {
         var _this = this;
         this.paymentTimer = window.setInterval(function(){
             _payment.getPaymentStatus(_this.data.orderNumber, function(res){
-                if(res == false){
+                if(res == true){
                     window.location.href
                         = './result.html?type=payment&orderNumber=' + _this.data.orderNumber;
                 }
             });
-        },5000);
+        }, 5e3);
     }
   
 };

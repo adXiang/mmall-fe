@@ -2,7 +2,7 @@
 * @Author: MaWenXiang
 * @Date:   2017-06-10 20:28:03
 * @Last Modified by:   MaWenXiang
-* @Last Modified time: 2018-03-14 00:19:21
+* @Last Modified time: 2018-03-14 00:30:52
 */
 
 'use strict';
@@ -29,6 +29,6 @@ var _payment = {
             success : resolve,
             error   : reject
         });
-    },  
+    }
 }
 module.exports = _payment; 
